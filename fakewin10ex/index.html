@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+    <title>Windows 10</title>
+</head>
+<body>
+    <div class="taskbar">
+        <div class="start-btn" id="start_btn" title="开始">
+            <!-- <img src="./img/win10logo.svg" class="logo" id="logo"/> -->
+        </div>
+        <div class="taskbar-right">
+            <div class="date-area" id="date_area"> 
+                <span class="time-str" id="time">00:00:00</span><br>
+                <span class="date-str" id="date">2020/12/28</span>
+            </div>
+            <div class="show-desktop" id="desktop"></div>
+        </div>
+    </div>
+    <div class="start-menu" id="start_menu">
+
+    </div>
+    <div class="calendar" id="calendar">
+        <div class="calendar-top">
+            <span class="calendar-time" id="calendar_time">00:00:00</span><br>
+            <span class="calendar-date" id="calendar_date">2020年12月29日十一月十五</span>
+        </div>
+        <div class="calendar-main">
+            <div class="calendar-titlebar">
+                <span class="calendar-title-month" id="calendar_title_month">2020年12月</span>
+                <i class="button-down" id="button_down"></i>
+                <i class="button-up" id="button_up"></i>
+            </div>
+            <div class="calendar-wrapper" id="calendar_wrapper">
+
+            </div>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>

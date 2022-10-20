@@ -1,0 +1,217 @@
+// 暗色主题色
+@darkAccentColor: #98c379;
+// 亮色主题色
+@lightAccentColor: #50a14f;
+// 暗色背景色
+@darkColor: #282c34;
+// 亮色背景色
+@lightColor: #fafafa;
+// 暗色前景色
+@darkForeColor: #dcdfe4;
+// 亮色前景色
+@lightForeColor: #383a42;
+// 背景色透明度
+@bgOpacity: 72%;
+// 日历阴影
+@shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
+// 其他月份日期透明度
+@fadeOpacity: 50%;
+// 背景亚克力模糊度
+@acrylicBlur: 25px;
+// 宽
+@calendarWidth: 350px;
+// 高
+@calendarHeight: 300px;
+// 日历边距
+@calendarMargin: 10px;
+// 定位：距离顶部
+@positionTop: 25px;
+// 定位：距离右部
+@positionRight: 25px;
+// 圆角大小
+@borderRadius: 20px;
+// 日历标题高度
+@titleHeight: 42px;
+// 日历标题字体大小
+@titleFontSize: 18pt;
+// 日历标题字重
+@titleFontWeight: 600;
+// 星期字体大小
+@weekNameFontSize: 18pt;
+// 星期字重
+@weekNameFontWeight: 500;
+// 每一天单元格大小
+@cellSize: 32px;
+// 每天字体大小
+@cellFontSize: 14pt;
+// 每天字重
+@cellFontWeight: 400;
+// 每一天单元格水平边距
+@cellHorizontalMargin: 6px;
+// 字体
+@fontFamily: '微软雅黑';
+// 今天字体颜色
+@todayFontColor: #fff;
+
+.auto-bg-color() {
+  @media (prefers-color-scheme: dark) {
+    background-color: fade(@darkColor, @bgOpacity);
+  }
+  @media (prefers-color-scheme: light) {
+    background-color: fade(@lightColor, @bgOpacity);
+  }
+  @media (prefers-color-scheme: no-preference) {
+    background-color: fade(@lightColor, @bgOpacity);
+  }
+}
+
+.auto-forecolor() {
+  @media (prefers-color-scheme: dark) {
+    color: @darkForeColor;
+  }
+  @media (prefers-color-scheme: light) {
+    color: @lightForeColor;
+  }
+  @media (prefers-color-scheme: no-preference) {
+    color: @lightForeColor;
+  }
+}
+
+.auto-head-forecolor() {
+  @media (prefers-color-scheme: dark) {
+    color: @darkAccentColor;
+  }
+  @media (prefers-color-scheme: light) {
+    color: @lightAccentColor;
+  }
+  @media (prefers-color-scheme: no-preference) {
+    color: @lightAccentColor;
+  }
+}
+
+.auto-hforecolor() {
+  @media (prefers-color-scheme: dark) {
+    color: fade(@darkForeColor, @fadeOpacity) !important;
+  }
+  @media (prefers-color-scheme: light) {
+    color: fade(@lightForeColor, @fadeOpacity) !important;
+  }
+  @media (prefers-color-scheme: no-preference) {
+    color: fade(@lightForeColor, @fadeOpacity) !important;
+  }
+}
+
+.auto-highlight() {
+  @media (prefers-color-scheme: dark) {
+    background-color: @darkAccentColor;
+  }
+  @media (prefers-color-scheme: light) {
+    background-color: @lightAccentColor;
+  }
+  @media (prefers-color-scheme: no-preference) {
+    background-color: @lightAccentColor;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.bg {
+  display: block;
+  position: fixed;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+
+.wallpaper-wrapper {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('./../img/bg5.jpg') no-repeat fixed;
+  background-size: cover;
+  z-index: 1;
+}
+
+.calendar {
+  display: block;
+  width: @calendarWidth;
+  height: @calendarHeight;
+  position: fixed;
+  right: @positionRight;
+  top: @positionTop;
+  backdrop-filter: blur(@acrylicBlur);
+  border-radius: @borderRadius;
+  box-shadow: @shadow;
+  .auto-bg-color();
+  z-index: 999;
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: @calendarMargin;
+  width: @calendarWidth - @calendarMargin * 2;
+  height: @calendarHeight - @calendarMargin * 2;
+}
+
+.calendar-head {
+  order: 0;
+  font-size: @titleFontSize;
+  font-family: @fontFamily;
+  font-weight: @titleFontWeight;
+  // align-self: flex-start;
+  height: @titleHeight;
+  line-height: @titleHeight;
+  // padding-left: 15px;
+  .auto-head-forecolor();
+}
+
+.calendar-weekname {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: @cellSize;
+  span {
+    font-family: @fontFamily;
+    font-size: @weekNameFontSize;
+    font-weight: @weekNameFontWeight;
+    width: @cellSize;
+    margin-left: @cellHorizontalMargin;
+    margin-right: @cellHorizontalMargin;
+    text-align: center;
+    .auto-forecolor();
+  }
+}
+
+.calendar-weeks {
+  .calendar-weekname();
+  span {
+    font-weight: @cellFontWeight;
+    font-size: @cellFontSize;
+    font-family: @fontFamily;
+    height: @cellSize;
+    line-height: @cellSize;
+  }
+}
+
+.today {
+  .auto-highlight();
+  border-radius: (@cellSize / 2);
+  color: @todayFontColor!important;
+}
+
+.other {
+  .auto-hforecolor();
+}

@@ -1,0 +1,17 @@
+{
+  "name": "myjsx2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild src/app.tsx --bundle --outdir=lib --loader:.jsx=jsx",
+    "build2": "esbuild src/mybutton/index.tsx --outdir=lib --loader:.jsx=jsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.15.10"
+  }
+}

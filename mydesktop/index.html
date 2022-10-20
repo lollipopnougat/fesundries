@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>桌面</title>
+</head>
+
+<body>
+    <div class="bg-wrapper"></div>
+    <header>
+        <img class="logo" src="./img/logo.png">
+        <span class="slogan" title="显示博客">lnp</span>
+        <!-- <img class="color-scheme" title="切换颜色主题"/> -->
+        <div class="color-scheme-switch" title="切换颜色主题">
+            <div class="color-scheme-box"></div>
+        </div>
+        <div class="address">
+            <input class="address-bar">
+        </div>
+        <div class="status-bar">
+            <div class="battery">
+                <div class="battery-pl"></div>
+                <div class="battery-bg">
+                    <div class="battery-level"></div>
+                    <img class="battery-charge" src="./img/bolt-solid.svg">
+                </div>
+            </div>
+            <div class="time-date">
+                <span class="time-zone">00:00:00</span><br>
+                <span class="date-zone">2022/12/20</span>
+            </div>
+        </div>
+    </header>
+    <div class="main-content">
+        
+        <div class="launch-pad">
+            <div class="item">
+                <img src="./img/edge.png" class="icons"><br>
+                <span>浏览器</span>
+            </div>
+            <div class="item">
+                <img src="./img/moon-solid.svg" class="icons"><br>
+                <span>时钟</span>
+            </div>
+            <div class="item">
+                <img src="./img/moon-solid.svg" class="icons"><br>
+                <span>null</span>
+            </div>
+            <div class="item">
+                <img src="./img/moon-solid.svg" class="icons"><br>
+                <span>日历</span>
+            </div>
+            <div class="item">
+                <img src="./img/moon-solid.svg" class="icons"><br>
+                <span>空白窗口</span>
+            </div>
+        </div>
+        <iframe src="https://www.lollipopnougat.top" class="broswer"></iframe>
+        <div class="blank-window">
+            <div class="window-head">
+                <div class="control-bar">
+                    <div class="window-hide"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                <span id="win_time"></span>
+            </div>
+        </div>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

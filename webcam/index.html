@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera</title>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+</head>
+
+<body>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    video {
+      height: 98vh;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+    }
+
+    button {
+      position: fixed;
+      right: 5%;
+      top: 40%;
+      background: #fff;
+      border: none;
+      padding: 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.1s linear;
+    }
+
+    button:active {
+      background: rgb(137, 137, 137);
+    }
+
+    button::after {
+      content: '\e722';
+      color: #000;
+      font-size: 36px;
+      font-family: 'Segoe MDL2 Assets';
+      vertical-align: middle;
+    }
+  </style>
+  <video autoplay></video>
+  <canvas></canvas>
+  <button></button>
+  <script>
+    const constraints = {
+      video: {
+        width: {
+          min: 1280,
+          ideal: 1920,
+          max: 2560,
+        },
+        height: {
+          min: 720,
+          ideal: 1080,
+          max: 1440,
+        },
+      },
+    };
+    async function setStream(v) {
+      if ("mediaDevices" in navigator && "getUserMedia" in navigator.mediaDevices) {
+        const videoStream = await navigator.mediaDevices.getUserMedia(constraints);
+        v.srcObject = videoStream;
+      }
+    }
+    window.onload = () => {
+      const video = document.querySelector('video');
+      const canvas = document.querySelector('canvas');
+      const btn = document.querySelector('button');
+      setStream(video);
+      btn.onclick = () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        // 渲染
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = `${Date.now()}.png`;
+        a.click();
+      }
+    };
+  </script>
+</body>
+
+</html>

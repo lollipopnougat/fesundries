@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.bg {
+  display: block;
+  position: fixed;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+.wallpaper-wrapper {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('../img/bg5.jpg') no-repeat fixed;
+  background-size: cover;
+  z-index: 1;
+}
+.calendar {
+  display: block;
+  width: 350px;
+  height: 300px;
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px;
+  z-index: 999;
+}
+@media (prefers-color-scheme: dark) {
+  .calendar {
+    background-color: rgba(40, 44, 52, 0.72);
+  }
+}
+@media (prefers-color-scheme: light) {
+  .calendar {
+    background-color: rgba(250, 250, 250, 0.72);
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .calendar {
+    background-color: rgba(250, 250, 250, 0.72);
+  }
+}
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  width: 330px;
+  height: 280px;
+}
+.calendar-head {
+  order: 0;
+  font-size: 18pt;
+  font-family: '微软雅黑';
+  font-weight: 600;
+  height: 42px;
+  line-height: 42px;
+}
+@media (prefers-color-scheme: dark) {
+  .calendar-head {
+    color: #98c379;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .calendar-head {
+    color: #50a14f;
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .calendar-head {
+    color: #50a14f;
+  }
+}
+.calendar-weekname {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+}
+.calendar-weekname span {
+  font-family: '微软雅黑';
+  font-size: 18pt;
+  font-weight: 500;
+  width: 32px;
+  margin-left: 6px;
+  margin-right: 6px;
+  text-align: center;
+}
+@media (prefers-color-scheme: dark) {
+  .calendar-weekname span {
+    color: #dcdfe4;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .calendar-weekname span {
+    color: #383a42;
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .calendar-weekname span {
+    color: #383a42;
+  }
+}
+.calendar-weeks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+}
+.calendar-weeks span {
+  font-family: '微软雅黑';
+  font-size: 18pt;
+  font-weight: 500;
+  width: 32px;
+  margin-left: 6px;
+  margin-right: 6px;
+  text-align: center;
+}
+@media (prefers-color-scheme: dark) {
+  .calendar-weeks span {
+    color: #dcdfe4;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .calendar-weeks span {
+    color: #383a42;
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .calendar-weeks span {
+    color: #383a42;
+  }
+}
+.calendar-weeks span {
+  font-weight: 400;
+  font-size: 14pt;
+  font-family: '微软雅黑';
+  height: 32px;
+  line-height: 32px;
+}
+.today {
+  border-radius: 16px;
+  color: #fff !important;
+}
+@media (prefers-color-scheme: dark) {
+  .today {
+    background-color: #98c379;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .today {
+    background-color: #50a14f;
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .today {
+    background-color: #50a14f;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .other {
+    color: rgba(220, 223, 228, 0.5) !important;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .other {
+    color: rgba(56, 58, 66, 0.5) !important;
+  }
+}
+@media (prefers-color-scheme: no-preference) {
+  .other {
+    color: rgba(56, 58, 66, 0.5) !important;
+  }
+}

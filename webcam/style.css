@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+video {
+  height: 98vh;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+button {
+  position: fixed;
+  right: 5%;
+  top: 40%;
+  background: #fff;
+  border: none;
+  padding: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.1s linear;
+}
+
+button:active {
+  background: rgb(137, 137, 137);
+}
+
+button::after {
+  content: '\e722';
+  color: #000;
+  font-size: 36px;
+  font-family: 'Segoe MDL2 Assets';
+  vertical-align: middle;
+}
